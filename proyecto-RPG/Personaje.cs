@@ -98,17 +98,30 @@ namespace Personaje {
 
             public void GuardarPersonajes(List<personaje> Pj, string archivo){
 
-                string Json = JsonSerializer.;
+                //Serializacion
+
+                string json = JsonSerializer.Serialize(Pj);
+
+                File.WriteAllText("personaje.json", json);
 
 
             }
 
-            public void LeerPersonajes(string archivo){
+            public List<personaje> LeerPersonajes(string archivo){
 
+                //Deserializacion
+
+                string jsonString = File.ReadAllText(archivo);
+
+                List<personaje> listaPersonaje = new List<personaje>();
+
+                listaPersonaje = JsonSerializer.Deserialize<List<personaje>>(jsonString);
+
+                return listaPersonaje;
 
             }
 
-            public bool Existe(personaje Pj){
+            public bool Existe(string archivo){
 
 
                 return;
