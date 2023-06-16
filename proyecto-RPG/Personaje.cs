@@ -104,10 +104,12 @@ namespace Personaje
 
         }
 
-        public void mostrarPersonaje(personaje pj)
+        public void mostrarPersonaje(personaje pj, int i)
         {
 
-            Console.WriteLine($"\n\nEl personaje {pj.Nombre} o mejor llamado {pj.Apodo} que es de tipo {pj.Tipo}, estas son sus estadisticas:");
+            Console.WriteLine("\n\nPersonaje " + i);
+
+            Console.WriteLine($"El personaje {pj.Nombre} o mejor llamado {pj.Apodo} que es de tipo {pj.Tipo}, estas son sus estadisticas:");
 
             Console.WriteLine($"Velocidad: {pj.Velocidad}\nDestreza: {pj.Destreza}\nFuerza: {pj.Fuerza}\nNivel: {pj.Nivel}\nArmadura: {pj.Armadura}\nSalud: {pj.Salud}");
 
