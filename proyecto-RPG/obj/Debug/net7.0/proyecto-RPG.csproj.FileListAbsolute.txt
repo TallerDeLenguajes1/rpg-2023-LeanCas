@@ -13,3 +13,18 @@ C:\Users\Alumno\Desktop\proyecto\proyecto-RPG\obj\Debug\net7.0\refint\proyecto-R
 C:\Users\Alumno\Desktop\proyecto\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.pdb
 C:\Users\Alumno\Desktop\proyecto\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.genruntimeconfig.cache
 C:\Users\Alumno\Desktop\proyecto\proyecto-RPG\obj\Debug\net7.0\ref\proyecto-RPG.dll
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.csproj.AssemblyReference.cache
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.AssemblyInfoInputs.cache
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.AssemblyInfo.cs
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.csproj.CoreCompileInputs.cache
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.dll
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\refint\proyecto-RPG.dll
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.pdb
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\bin\Debug\net7.0\proyecto-RPG.exe
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\bin\Debug\net7.0\proyecto-RPG.deps.json
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\bin\Debug\net7.0\proyecto-RPG.runtimeconfig.json
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\bin\Debug\net7.0\proyecto-RPG.dll
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\bin\Debug\net7.0\proyecto-RPG.pdb
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\proyecto-RPG.genruntimeconfig.cache
+C:\Users\Bruno Casavalle\Desktop\MATERIAS 3ro\Taller de Lenguajes 1\Proyecto\rpg-2023-LeanCas\proyecto-RPG\obj\Debug\net7.0\ref\proyecto-RPG.dll

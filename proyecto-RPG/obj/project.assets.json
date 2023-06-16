@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Alumno\\.nuget\\packages\\": {}
+    "C:\\Users\\Bruno Casavalle\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto-RPG\\proyecto-RPG.csproj",
+      "projectUniqueName": "C:\\Users\\Bruno Casavalle\\Desktop\\MATERIAS 3ro\\Taller de Lenguajes 1\\Proyecto\\rpg-2023-LeanCas\\proyecto-RPG\\proyecto-RPG.csproj",
       "projectName": "proyecto-RPG",
-      "projectPath": "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto-RPG\\proyecto-RPG.csproj",
-      "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto-RPG\\obj\\",
+      "projectPath": "C:\\Users\\Bruno Casavalle\\Desktop\\MATERIAS 3ro\\Taller de Lenguajes 1\\Proyecto\\rpg-2023-LeanCas\\proyecto-RPG\\proyecto-RPG.csproj",
+      "packagesPath": "C:\\Users\\Bruno Casavalle\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bruno Casavalle\\Desktop\\MATERIAS 3ro\\Taller de Lenguajes 1\\Proyecto\\rpg-2023-LeanCas\\proyecto-RPG\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bruno Casavalle\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

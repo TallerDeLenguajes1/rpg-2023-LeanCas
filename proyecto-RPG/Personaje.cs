@@ -1,26 +1,28 @@
-using System.Text.Json; 
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 
-namespace Personaje {
+namespace Personaje
+{
 
-    
 
 
-    class personaje{
+
+    class personaje
+    {
 
         //CARACTERISTICAS
 
-       private int velocidad;
+        private int velocidad;
 
         private int destreza;
 
-        private int fuerza; 
-        
+        private int fuerza;
+
         private int nivel;
-        
+
         private int armadura;
-        
+
         private int salud;
 
         //Encapsulamiento 
@@ -56,62 +58,82 @@ namespace Personaje {
 
     }
 
-    class FabricaDePersonajes{
+    class FabricaDePersonajes
+    {
 
 
-        public personaje crearPersonaje(){ //Metodo para la creacion de personajes
+        public personaje crearPersonaje()
+        { //Metodo para la creacion de personajes
 
             Random rdn = new Random();
 
             personaje pj = new personaje();
 
-            pj.Velocidad = rdn.Next(0,11);
-            pj.Destreza = rdn.Next(0,6);
-            pj.Fuerza = rdn.Next(0,11);
-            pj.Nivel = rdn.Next(0,11);
-            pj.Armadura = rdn.Next(0,11);
+            pj.Velocidad = rdn.Next(0, 11);
+            pj.Destreza = rdn.Next(0, 6);
+            pj.Fuerza = rdn.Next(0, 11);
+            pj.Nivel = rdn.Next(0, 11);
+            pj.Armadura = rdn.Next(0, 11);
             pj.Salud = 100;
 
-            Console.WriteLine("Ingrese el tipo de personaje");
+            string[] nombresTipo = new string[] { "Arquero", "Hechicero", "Vikingo", "Guerrero", "Asesino" };
 
-            pj.Tipo = Console.ReadLine();
+            pj.Tipo = nombresTipo[rdn.Next(nombresTipo.Length)];
 
-            Console.WriteLine("Ingrese el nombre del personaje");
+            string[] nombresPersonaje = new string[] { "Mario", "Luigi", "Peach", "Bowser", "Armando", "Juan" };
 
-            pj.Nombre = Console.ReadLine();
+            pj.Nombre = nombresPersonaje[rdn.Next(nombresPersonaje.Length)];
 
-            Console.WriteLine("Ingrese el apodo del personaje");
+            string[] apodosMedievales = new string[] { "El Valiente", "El Sabio", "El Justiciero", "El Intrépido", "El Noble", "El Legendario" };
 
-            pj.Apodo = Console.ReadLine();
+            pj.Apodo = apodosMedievales[rdn.Next(apodosMedievales.Length)];
 
-            Console.WriteLine("Ingrese la fecha de nacimiento del personaje");
+            int dia = rdn.Next(1, 29);
 
-            pj.FechaNac = DateTime.Parse(Console.ReadLine());
+            int mes = rdn.Next(1, 13);
 
-            pj.Edad = rdn.Next(0,301);
+            int anio = rdn.Next(475, 1493);
+
+            DateTime fechaNacimiento = new DateTime(anio, mes, dia);
+
+            pj.FechaNac = fechaNacimiento;
+
+            pj.Edad = rdn.Next(0, 301);
 
             return pj;
 
         }
 
-        class PersonajesJson {
+        public void mostrarPersonaje(personaje pj)
+        {
 
-            public void GuardarPersonajes(List<personaje> Pj, string archivo){
+            Console.WriteLine($"\n\nEl personaje {pj.Nombre} o mejor llamado {pj.Apodo} que es de tipo {pj.Tipo}, estas son sus estadisticas:");
+
+            Console.WriteLine($"Velocidad: {pj.Velocidad}\nDestreza: {pj.Destreza}\nFuerza: {pj.Fuerza}\nNivel: {pj.Nivel}\nArmadura: {pj.Armadura}\nSalud: {pj.Salud}");
+
+        }
+
+        public class PersonajesJson
+        {
+
+            public void GuardarPersonajes(List<personaje> Pj, string archivo)
+            {
 
                 //Serializacion
 
                 string json = JsonSerializer.Serialize(Pj);
 
-                File.WriteAllText("personaje.json", json);
+                File.WriteAllText(archivo + ".json", json);
 
 
             }
 
-            public List<personaje> LeerPersonajes(string archivo){
+            public List<personaje> LeerPersonajes(string archivo)
+            {
 
                 //Deserializacion
 
-                string jsonString = File.ReadAllText(archivo);
+                string jsonString = File.ReadAllText(archivo + ".json");
 
                 List<personaje> listaPersonaje = new List<personaje>();
 
@@ -121,19 +143,31 @@ namespace Personaje {
 
             }
 
-            public bool Existe(string archivo){
+            public bool Existe(string archivo)
+            {
 
+                if (File.Exists(archivo + ".json"))
+                {
 
-                return;
+                    return true;
+
+                }
+                else
+                {
+
+                    return false;
+
+                }
+
             }
 
 
-        } 
+        }
 
 
 
 
-        
+
 
 
     }
