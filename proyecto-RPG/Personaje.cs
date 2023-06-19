@@ -69,11 +69,11 @@ namespace Personaje
 
             personaje pj = new personaje();
 
-            pj.Velocidad = rdn.Next(0, 11);
-            pj.Destreza = rdn.Next(0, 6);
-            pj.Fuerza = rdn.Next(0, 11);
-            pj.Nivel = rdn.Next(0, 11);
-            pj.Armadura = rdn.Next(0, 11);
+            pj.Velocidad = rdn.Next(1, 11);
+            pj.Destreza = rdn.Next(1, 6);
+            pj.Fuerza = rdn.Next(1, 11);
+            pj.Nivel = rdn.Next(1, 11);
+            pj.Armadura = rdn.Next(1, 11);
             pj.Salud = 100;
 
             string[] nombresTipo = new string[] { "Arquero", "Hechicero", "Vikingo", "Guerrero", "Asesino" };

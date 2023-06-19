@@ -105,13 +105,13 @@ Random rdn = new Random();
 while (personaje1.Salud > 0 && personaje2.Salud > 0)
 {
 
-    Console.WriteLine("Turno" + j);
+    Console.WriteLine("\n\n\n\tTurno " + (j + 1));
 
     Console.WriteLine($"Personaje 1 salud : {personaje1.Salud} --- Personaje 2 salud : {personaje2.Salud}");
 
     //Ataca personaje1
 
-    Console.WriteLine("Ataca Personaje 1");
+    Console.WriteLine("\tAtaca Personaje 1");
 
     int ataquePj1 = personaje1.Destreza * personaje1.Fuerza * personaje1.Nivel;
 
@@ -128,7 +128,7 @@ while (personaje1.Salud > 0 && personaje2.Salud > 0)
     if (personaje2.Salud > 0)
     {
 
-        Console.WriteLine("Ataca Personaje 2");
+        Console.WriteLine("\tAtaca Personaje 2");
 
         int ataquePj2 = personaje2.Destreza * personaje2.Fuerza * personaje2.Nivel;
 
@@ -145,6 +145,23 @@ while (personaje1.Salud > 0 && personaje2.Salud > 0)
     }
 
     j++;
+
+}
+
+if (personaje1.Salud < 0)
+{
+
+    Console.WriteLine("\n\n\t===== El ganador es el personaje 2, felicitaciones =====");
+
+    FabricarPj.mostrarPersonaje(personaje2, 2);
+
+}
+else
+{
+
+    Console.WriteLine("\n\n\t====== El ganador es el personaje 1, felicitaciones =====");
+
+    FabricarPj.mostrarPersonaje(personaje1, 1);
 
 }
 
