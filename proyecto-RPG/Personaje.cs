@@ -1,12 +1,11 @@
+using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using EspacioPokemon;
 
 
 namespace Personaje
 {
-
-
-
 
     class personaje
     {
@@ -42,8 +41,6 @@ namespace Personaje
 
         private string? nombre;
 
-        private string? apodo;
-
         private DateTime fechaNac;
 
         private int edad;
@@ -52,7 +49,6 @@ namespace Personaje
 
         public string? Tipo { get => tipo; set => tipo = value; }
         public string? Nombre { get => nombre; set => nombre = value; }
-        public string? Apodo { get => apodo; set => apodo = value; }
         public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
         public int Edad { get => edad; set => edad = value; }
 
@@ -61,7 +57,6 @@ namespace Personaje
     class FabricaDePersonajes
     {
 
-
         public personaje crearPersonaje()
         { //Metodo para la creacion de personajes
 
@@ -69,24 +64,20 @@ namespace Personaje
 
             personaje pj = new personaje();
 
+            PersonajesJson pjson = new PersonajesJson();
+
             pj.Velocidad = rdn.Next(1, 11);
-            pj.Destreza = rdn.Next(1, 6);
-            pj.Fuerza = rdn.Next(1, 11);
+            pj.Destreza = rdn.Next(1, 11);
+            pj.Fuerza = rdn.Next(4, 11);
             pj.Nivel = rdn.Next(1, 11);
             pj.Armadura = rdn.Next(1, 11);
             pj.Salud = 100;
 
-            string[] nombresTipo = new string[] { "Arquero", "Hechicero", "Vikingo", "Guerrero", "Asesino" };
+            string[] nombresTipo = new string[] { "Fuego", "Tierra", "Agua", "Viento" };
 
             pj.Tipo = nombresTipo[rdn.Next(nombresTipo.Length)];
 
-            string[] nombresPersonaje = new string[] { "Mario", "Luigi", "Peach", "Bowser", "Armando", "Juan" };
-
-            pj.Nombre = nombresPersonaje[rdn.Next(nombresPersonaje.Length)];
-
-            string[] apodosMedievales = new string[] { "El Valiente", "El Sabio", "El Justiciero", "El Intrépido", "El Noble", "El Legendario" };
-
-            pj.Apodo = apodosMedievales[rdn.Next(apodosMedievales.Length)];
+            pj.Nombre = pjson.Get();
 
             int dia = rdn.Next(1, 29);
 
@@ -104,12 +95,29 @@ namespace Personaje
 
         }
 
-        public void mostrarPersonaje(personaje pj, int i)
+        public void mostrarListaPersonajes(List<personaje> listaPersonaje)
         {
 
-            Console.WriteLine("\n\nPersonaje " + i);
+            int i = 0;
+            foreach (var pj in listaPersonaje)
+            {
+                Console.WriteLine($"=============== POKEMON {i} =================== ");
 
-            Console.WriteLine($"El personaje {pj.Nombre} o mejor llamado {pj.Apodo} que es de tipo {pj.Tipo}, estas son sus estadisticas:");
+                Console.WriteLine($"El pokemon {pj.Nombre} de tipo {pj.Tipo}");
+
+                Console.WriteLine($"Velocidad: {pj.Velocidad}\nDestreza: {pj.Destreza}\nFuerza: {pj.Fuerza}\nNivel: {pj.Nivel}\nArmadura: {pj.Armadura}\nSalud: {pj.Salud}");
+
+                i++;
+            }
+
+        }
+
+        public void mostrarPersonaje(personaje pj)
+        {
+
+            Console.WriteLine("==================================");
+
+            Console.WriteLine($"El pokemon {pj.Nombre} de tipo {pj.Tipo}");
 
             Console.WriteLine($"Velocidad: {pj.Velocidad}\nDestreza: {pj.Destreza}\nFuerza: {pj.Fuerza}\nNivel: {pj.Nivel}\nArmadura: {pj.Armadura}\nSalud: {pj.Salud}");
 
@@ -120,14 +128,19 @@ namespace Personaje
 
             public void GuardarPersonajes(List<personaje> Pj, string archivo)
             {
-
                 //Serializacion
+
+                string path = Directory.GetCurrentDirectory();
+
+                if (!Directory.Exists(path + @"/save"))
+                {
+
+                    Directory.CreateDirectory(path + @"/save");
+                }
 
                 string json = JsonSerializer.Serialize(Pj);
 
-                File.WriteAllText(archivo + ".json", json);
-
-
+                File.WriteAllText(path + @"/save/" + archivo + ".json", json);
             }
 
             public List<personaje> LeerPersonajes(string archivo)
@@ -135,7 +148,11 @@ namespace Personaje
 
                 //Deserializacion
 
-                string jsonString = File.ReadAllText(archivo + ".json");
+                string path = Directory.GetCurrentDirectory();
+
+                path = path + @"/save/";
+
+                string jsonString = File.ReadAllText(@"save/" + archivo + ".json");
 
                 List<personaje> listaPersonaje = new List<personaje>();
 
@@ -147,8 +164,9 @@ namespace Personaje
 
             public bool Existe(string archivo)
             {
+                string path = Directory.GetCurrentDirectory();
 
-                if (File.Exists(archivo + ".json"))
+                if (File.Exists(path + @"/save/" + archivo + ".json"))
                 {
 
                     return true;
@@ -163,14 +181,49 @@ namespace Personaje
 
             }
 
+            public string Get()
+            {
+                var url = $"https://pokeapi.co/api/v2/pokemon?offset=0&limit=100";
+                var request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "GET";
+                request.ContentType = "application/json";
+                request.Accept = "application/json";
+
+                Random random = new Random();
+
+                try
+                {
+
+                    using (WebResponse response = request.GetResponse())
+                    {
+                        using (Stream strReader = response.GetResponseStream())
+                        {
+                            if (strReader != null)
+                            {
+                                using (StreamReader sr = new StreamReader(strReader))
+                                {
+                                    string responseBody = sr.ReadToEnd();
+
+                                    Pokemon pokemonClase = JsonSerializer.Deserialize<Pokemon>(responseBody);
+
+                                    string nombre = pokemonClase.results[random.Next(0, 100)].name;
+
+                                    return nombre;
+
+                                }
+                            }
+                        }
+                    }
+
+                }
+                catch (WebException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                return null;
+            }
 
         }
-
-
-
-
-
-
 
     }
 
